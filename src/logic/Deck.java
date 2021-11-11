@@ -1,7 +1,7 @@
 package logic;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.List;
 
 /**
  * 
@@ -15,16 +15,25 @@ public class Deck {
 
 	public Deck(int numberOfCards) {
 		this.numberOfCards = numberOfCards;
-	}
-
-	public void shuffle() {
-		Collections.shuffle(allCards);
+		createDeck();
 	}
 
 	private void createDeck() {
+		allCards = new ArrayList<Card>();
 		for (int i = 1; i <= numberOfCards; i++) {
 			allCards.add(new Card(i));
 		}
 	}
 
+	public ArrayList<Card> getDeck() {
+		return this.allCards;
+	}
+
+	public void setDeck(ArrayList<Card> deck) {
+		this.allCards = deck;
+	}
+
+	public int getNumberOfCards() {
+		return this.numberOfCards;
+	}
 }

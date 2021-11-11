@@ -1,10 +1,12 @@
 package start;
 
+import logic.Analysis;
+
 public class Start {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Analysis analysis = new Analysis(3);
+		analysis.testAllCombinations();
 	}
 
 }
