@@ -1,8 +1,5 @@
 package logic;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 
  * 
@@ -11,7 +8,7 @@ import java.util.List;
 public class Deck {
 
 	private int numberOfCards;
-	private ArrayList<Card> allCards;
+	private Card[] allCards;
 
 	public Deck(int numberOfCards) {
 		this.numberOfCards = numberOfCards;
@@ -19,21 +16,29 @@ public class Deck {
 	}
 
 	private void createDeck() {
-		allCards = new ArrayList<Card>();
-		for (int i = 1; i <= numberOfCards; i++) {
-			allCards.add(new Card(i));
+		setAllCards(new Card[this.numberOfCards]);
+		for (int i = 0; i < numberOfCards; i++) {
+			allCards[i] = new Card(i + 1, i);
 		}
-	}
-
-	public ArrayList<Card> getDeck() {
-		return this.allCards;
-	}
-
-	public void setDeck(ArrayList<Card> deck) {
-		this.allCards = deck;
 	}
 
 	public int getNumberOfCards() {
 		return this.numberOfCards;
+	}
+
+	public Card[] getAllCards() {
+		return allCards;
+	}
+
+	public void setAllCards(Card[] allCards) {
+		this.allCards = allCards;
+	}
+	
+	public Card getCardWithIndex(int index) {
+		return allCards[index];
+	}
+	
+	public void setCardWithIndex(int index, Card card) {
+		allCards[index] = card;
 	}
 }
